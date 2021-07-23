@@ -5,80 +5,19 @@
     <title>Mobile</title>
 </head>
 <body>
+<h1 id="mobileList"></h1>
+
+<table>
+    <td id="mobile1"></td>
+    <td id="innerMobile1"></td>
+    <td id="mobile2"></td>
+    <td id="innerMobile2"></td>
+</table>
 <p id="myMessages"></p>
-<input type="text" id="inbox" onchange="receiveInbox()" placeholder="sendmess">
-<input type="text" id="draft" placeholder="write Message here" oninput="saveDraft()">
-<button onclick="sendMessage()"> send message </button>
-<button type="button" onclick="mobile1.checkInbox()">Check inbox</button>
-<script>
-  let mobile = function (){
-    this.battery = 100,
-    this.draft,
-    this.inbox = [],
-    this.sent = [],
-    this.status = false;
-
-    this.checkOn = function(){
-      if (this.status == true) {
-        return true;
-      } else {
-        alert('Máy đang tắt. Vui lòng bật máy lên để sử dụng')
-        return false;
-      }
-    }
-    this.turnOnOff = function (){
-      if (this.checkOn()){
-        this.status = false;
-        return alert('Turning off');
-      } else {
-        this.status = true;
-        return alert('turning on')
-      }
-    }
-    this.charge = function (){
-      if ()
-      return this.battery = 100;
-    }
-    this.writeMessage = function(draft){
-      return this.draft = draft;
-    }
-    this.receiveInbox = function(message){
-      alert('Incoming message')
-      return this.inbox.push(message);
-    }
-    this.sendMessage = function (message){
-      alert('sent')
-      return this.sent.push(message);
-    }
-    this.checkInbox = function () {
-      let inbox = "<table>"
-      for (let i = 0; i < this.inbox.length; i++) {
-        inbox += `<tr> <td>${this.inbox[i]}</td> </tr>`
-      }
-      inbox+= "</table>"
-      document.getElementById("myMessages").innerHTML = inbox;
-    }
-
-  }
-
-  let mobile1 = new mobile();
-  let mobile2 = new mobile();
-  function saveDraft(){
-    let draft = document.getElementById("draft").value;
-    mobile1.writeMessage(draft);
-  }
-
-  function receiveInbox(){
-    let message = document.getElementById("inbox").value;
-    mobile1.receiveInbox(message);
-  }
-
-  function sendMessage(){
-    let message = document.getElementById("draft").value;
-    mobile1.sendMessage(message);
-  }
 
 
-</script>
+<script src="mobile.js"></script>
+
+
 </body>
 </html>

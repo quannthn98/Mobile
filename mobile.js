@@ -38,11 +38,9 @@ let mobile = function(id,name){
         return this.draft = draft;
     }
     this.receiveInbox = function(message){
-        alert('Incoming message')
         return this.inbox.push(message);
     }
     this.sendMessage = function (message){
-        alert('sent')
         return this.sent.push(message);
     }
     this.checkInbox = function () {
@@ -75,6 +73,7 @@ function checkInbox(id){
 }
 
 manageMobile();
+
 function manageMobile(){
     let hienthi = "<table>";
     for (let i = 0; i < mobileList.length; i++) {
@@ -101,13 +100,13 @@ function showMobile(id){
 }
 function showMessage(id1,id2){
     let hienthi = `<h1> Send mess From ${mobileList[id1].name} to ${mobileList[id2].name}</h1> <p id="content"></p> <input id="messages" type="text"> <button onclick="sendMessage(${id1},${id2})">send</button>`
-    let messages = "<table border='1'>";
+    let messages = `<table border='1'> <tr><th colspan="2">You are chatting with ${mobileList[id2].name} </th> </tr>`;
     document.getElementById("myMessages").innerHTML = hienthi;
     for (let i = 0; i < mobileList[id1].sent[id2].length; i++) {
         if (i > 5){
             break;
         }
-        messages += `<tr> <td style="width: 100px"> ${mobileList[id1].inbox[id2][i]} </td> <td style="width: 100px">${mobileList[id1].sent[id2][i]}</td> </tr>`
+        messages += `<tr> <td style="width: 100px"> ${mobileList[id1].inbox[id2][i]} </td> <td style="width: 100px;text-align: right">${mobileList[id1].sent[id2][i]}</td> </tr>`
     }
     messages +=`</table>`
     document.getElementById("content").innerHTML = messages

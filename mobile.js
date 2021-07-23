@@ -54,26 +54,26 @@ let mobile = function(id,name){
         document.getElementById("myMessages").innerHTML = inbox;
     }
 }
-function saveDraft(id){
-    let draft = document.getElementById(id+'').value;
-    mobileList[id].writeMessage(draft);
-}
-function receiveInbox(id){
-    let message = document.getElementById(id+'').value;
-    mobileList[id].receiveInbox(message);
-}
-// function sendMessage(id){
-//     let message = document.getElementById(id+'').value;
-//     mobileList[id].sendMessage(message);
-// }
-function checkInbox(id){
-    mobileList[id].checkInbox()
-}
 let mobile1 = new mobile(0,'Mobile1');
 let mobile2 = new mobile(1,'Mobile2');
 let mobile3 = new mobile(2,'Mobile3');
 let mobileList = [mobile1,mobile2,mobile3];
 let count = 1;
+
+function saveDraft(id){
+    let draft = document.getElementById(id+'').value;
+    mobileList[id].writeMessage(draft);
+}
+
+function receiveInbox(id){
+    let message = document.getElementById(id+'').value;
+    mobileList[id].receiveInbox(message);
+}
+
+function checkInbox(id){
+    mobileList[id].checkInbox()
+}
+
 manageMobile();
 function manageMobile(){
     let hienthi = "<table>";
